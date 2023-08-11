@@ -10,13 +10,6 @@ You can install the package via composer:
 composer require minhajul/aws-secret-manager
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="aws-secret-manager-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -30,17 +23,11 @@ return [
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="aws-secret-manager-views"
-```
-
 ## Usage
 
 ```php
 $awsSecretManager = new Minhajul\AwsSecretManager();
-echo $awsSecretManager->echoPhrase('Hello, Minhajul!');
+echo $awsSecretManager->getSecretKey('local_encryption_key');
 ```
 
 ## Testing
