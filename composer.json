@@ -1,6 +1,6 @@
 {
     "name": "minhajul/aws-secret-manager",
-    "description": "Laravel implementation for AWS Secret Manager",
+    "description": "Laravel implementation of AWS Secret Manager",
     "keywords": [
         "minhajul",
         "laravel",
