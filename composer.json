@@ -1,6 +1,6 @@
 {
     "name": "minhajul/aws-secret-manager",
-    "description": "This is my package aws-secret-manager",
+    "description": "Laravel implementation for AWS Secret Manager",
     "keywords": [
         "minhajul",
         "laravel",
@@ -17,15 +17,8 @@
     ],
     "require": {
         "php": "^8.1",
-        "spatie/laravel-package-tools": "^1.14.0",
-        "illuminate/contracts": "^10.0",
         "aws/aws-sdk-php": "^3.271",
         "ext-json": "*"
-    },
-    "require-dev": {
-        "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^7.8",
-        "orchestra/testbench": "^8.0"
     },
     "autoload": {
         "psr-4": {
@@ -35,16 +28,6 @@
     "autoload-dev": {
         "psr-4": {
             "Minhajul\\AwsSecretManager\\Tests\\": "tests/"
-        }
-    },
-    "scripts": {
-        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi"
-    },
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true,
-            "phpstan/extension-installer": true
         }
     },
     "extra": {
@@ -57,6 +40,6 @@
             }
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

@@ -1,6 +1,6 @@
 # AWS Secret Manager for Laravel
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Easy implementation fo AWS secret managet just to get the key value pair of specific secrt id.
 
 ## Installation
 
@@ -26,8 +26,10 @@ return [
 ## Usage
 
 ```php
-$awsSecretManager = new Minhajul\AwsSecretManager();
-echo $awsSecretManager->getSecretKey('local_encryption_key');
+use Minhajul\AwsSecretManager\AwsSecretManager;
+
+$awsSecretManager = new AwsSecretManager();
+dd($awsSecretManager->getSecretKey('local_encryption_key'));
 ```
 
 ## Testing
@@ -36,22 +38,8 @@ echo $awsSecretManager->getSecretKey('local_encryption_key');
 composer test
 ```
 
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
 ## Credits
-
 - [Md Minhajul Islam](https://github.com/minhajul)
-- [All Contributors](../../contributors)
 
 ## License
 

@@ -10,8 +10,8 @@ class AwsSecretManagerServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => base_path('config/aws-secret-manager.php'),
-            ], 'config');
+                __DIR__.'/../config/aws-secret-manager.php' => config_path('aws-secret-manager.php')
+            ]);
         }
     }
 

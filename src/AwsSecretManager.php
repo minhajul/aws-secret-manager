@@ -4,18 +4,22 @@ namespace Minhajul\AwsSecretManager;
 
 use Aws\Exception\AwsException;
 use Aws\SecretsManager\SecretsManagerClient;
-use Illuminate\Support\Arr;
 
 class AwsSecretManager
 {
-    public static function getSecretKey($key)
+    public $client;
+
+    public function __construct()
     {
-        $client = new SecretsManagerClient([
+        $this->client = new SecretsManagerClient([
             'region' => config('aws-secret-manager.aww_default_region'),
         ]);
+    }
 
+    public function getSecretKey(string $key)
+    {
         try {
-            $result = $client->getSecretValue([
+            $result = $this->client->getSecretValue([
                 'SecretId' => $key,
                 'VersionStage' => "AWSCURRENT",
             ]);
@@ -26,7 +30,7 @@ class AwsSecretManager
                 $secret = base64_decode($result['SecretBinary']);
             }
 
-            return Arr::get(json_decode($secret, true), $key);
+            return json_decode($secret, true);
 
         } catch (AwsException $e) {
             $error = $e->getAwsErrorCode();
