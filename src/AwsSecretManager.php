@@ -8,20 +8,15 @@ use Illuminate\Support\Arr;
 
 class AwsSecretManager
 {
-    public static function getSecretKey()
+    public static function getSecretKey($key)
     {
-        // Skipping to call AWS in local and testing environment
-        if (!app()->isProduction()) {
-            return config('encryption.encryption_key');
-        }
-
         $client = new SecretsManagerClient([
-            'region' => "ap-southeast-1",
+            'region' => config('aws-secret-manager.aww_default_region'),
         ]);
 
         try {
             $result = $client->getSecretValue([
-                'SecretId' => config('encryption.secret_id'),
+                'SecretId' => $key,
                 'VersionStage' => "AWSCURRENT",
             ]);
 
@@ -31,7 +26,7 @@ class AwsSecretManager
                 $secret = base64_decode($result['SecretBinary']);
             }
 
-            return Arr::get(json_decode($secret, true), 'encryption_key');
+            return Arr::get(json_decode($secret, true), $key);
 
         } catch (AwsException $e) {
             $error = $e->getAwsErrorCode();
