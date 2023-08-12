@@ -1,6 +1,6 @@
 # AWS Secret Manager for Laravel
 
-Easy implementation fo AWS secret managet just to get the key value pair of specific secrt id.
+Easy implementation for AWS secret manager just to get the key value pair of specific secret id.
 
 ## Installation
 
