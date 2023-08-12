@@ -57,6 +57,6 @@ class AwsSecretManager
             }
         }
 
-        return null;
+        return 'Nothing found with the given key';
     }
 }
